@@ -6,17 +6,20 @@ body {
     flex-direction: column;
     font-size:x-large;
     align-items: center;
+    background-color: rgb(255, 255, 255);
 }
 .calculator {
     margin:1em;
-    width:400px;
-    height:600px;
+    width:15em;
+    height:25em;
     background-color: rgb(231, 223, 201);
-    display: flex;
+    display:flex;
     flex-direction: column;
     align-items: center;
-    border: solid 2px;
+    align-self: center;
+    border: solid .2em rgb(68, 68, 68);
     border-radius: 12px;
+    box-shadow: 8px 7px rgba(0, 0, 0, 0.267);
     
 }
 .display {
@@ -25,7 +28,7 @@ body {
     font-style: normal;
     display:flex;
     flex-direction: row-reverse;
-    width:70%;
+    width:9.79em;
     height: 8%;
     background-color: rgb(0, 0, 0);
     border: solid 3px rgb(163, 158, 144);
@@ -39,33 +42,71 @@ body {
     color:rgb(171, 255, 171);
     text-decoration: dashed underline overline;
 }
+.keypadContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    width:100%;
 
+}
 .keypad {
     display:flex;
     justify-content: flex-start;
-    width: 70%;
-    flex-direction: row;
+    width: 8.4em;
     flex-wrap: wrap;
+    margin-right:0%;
+}
+.keypadLeft {
+    flex-direction: row;
+    width:10px;
+}
+.keypadRight {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0%;
+    margin-right: 0%;
+    width:2.8em;
 }
 .key {
-    box-shadow: 1em;;
-    width:45px;
-    height: 45px;
-    margin:.5em;
-    flex-direction: row;
-    background-color: grey;;
+    width:2.8em;
+    height:2.8em;
+    margin:.4em;
+    flex-direction: column;
+    background-color: rgb(182, 182, 182);
     display:flex;
     justify-content: center;
-    align-content: center;;
+    align-content: center;
     margin-right:.5em;
     margin-top:.5em;
     text-align:center;
     flex-direction: column;
     padding:.3em;
-    font-weight: 900;
+    font-weight:bold;
     font-size: large;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial, sans-serif';
+    border-radius: 10%;
+    box-shadow: 4px 4px rgb(182, 182, 182);
 }
+.wideKey {
+    width: 6.4em;
+    border-radius: 5%;
+}
+.longKey {
+    height: 6.6em;
+    border-radius: 5%;
+}
+.numKey {
+    background-color: rgb(68, 68, 68);
+    color:white;
+}
+.plusKey {
+    background-color: rgb(177, 0, 0);
+    color:white;
+}
+.dotKey {
+    background-color: rgb(182, 182, 182);
+}
+
 .key.button {
     margin:0%;
     border: solid 3px rgb(0, 0, 0);
