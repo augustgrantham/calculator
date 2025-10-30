@@ -100,11 +100,11 @@ body {
     background-color: rgb(68, 68, 68);
     color:white;
 }
-.plusKey {
+#plusKey {
     background-color: rgb(177, 0, 0);
     color:white;
 }
-.dotKey {
+#dotKey {
     background-color: rgb(182, 182, 182);
 }
 
