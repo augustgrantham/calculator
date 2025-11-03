@@ -28,20 +28,23 @@ body {
     font-style: normal;
     display:flex;
     flex-direction: row-reverse;
-    width:9.79em;
+    width:9.5em;
     height: 8%;
     background-color: rgb(0, 0, 0);
     border: solid 3px rgb(163, 158, 144);
     border-radius: 12px;
     margin:2em;
-    padding:.3em;
+    padding:.5em;
     padding-top:.5em;
-    
-
+    overflow:hidden;   
+    text-overflow: clip;
 }
 .display,p {
     color:rgb(171, 255, 171);
     text-decoration: dashed underline overline;
+    white-space: nowrap; /* Ensures the text stays on one line */
+    overflow: hidden;    /* Hides content that doesn't fit */
+    text-overflow: clip;
 }
 .keypadContainer {
     display: flex;

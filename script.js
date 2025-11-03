@@ -126,7 +126,14 @@ function subtract(num1,num2) {
 }
 //divide function
 function divide(num1,num2) {
+    if(num2 == 0) {
+        console.log("uh oh");
+        return "you broke it"; 
+    }
+    else {
     return num1/num2;
+
+    }
 }
 //multiply
 function multiply(num1,num2) {
@@ -134,19 +141,26 @@ function multiply(num1,num2) {
 }
 //operation function
 function operate(op, num1, num2) {
+    let result;
     switch(op) {
         case 'plusKey':
-            return add(Number(num1),Number(num2));
+            result = add(Number(num1),Number(num2));
             break;
         case 'minusKey':
-            return subtract(Number(num1),Number(num2));
+            result = subtract(Number(num1),Number(num2));
             break;
         case 'divideKey':
-            return divide(Number(num1),Number(num2));
+            result = divide(Number(num1),Number(num2));
             break;
         case 'multiplyKey':
-            return multiply(Number(num1),Number(num2));
+            result = multiply(Number(num1),Number(num2));
             break;
+    }
+    if (result % 1 != 0) {
+    return result.toFixed(5);
+    }
+    else {
+        return result;
     }
 }
 function clear() {
