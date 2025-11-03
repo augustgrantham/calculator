@@ -6,7 +6,6 @@ let op = " ";
 let state = "input1";
 let decimal = false;
 let operating = false;
-let ans = false;
 //display reference
 const display = document.querySelector(".display");
 //button references
@@ -15,43 +14,59 @@ const buttons = document.querySelectorAll("button");
 
 function calculatorController(input) {
     switch(input) {
+        //if it's an operator
+        case 'clearKey':
+            num1 = '';
+            num2 = '';
+            op = '';
+            state = "input1";
+            updateDisplay(num1);
+            break;
         case 'plusKey':
-            op = '+';
-            console.log(op);
-            state = "input2";
-            operating = true;
-            break;
         case 'minusKey':
-            op = '-';
-            console.log(op);
-            state = "input2";
-            operating = true;
-            break;
         case 'multiplyKey':
-            op = '*';
-            console.log(op);
-            state = "input2";
-            operating = true;
-            break;
         case 'divideKey':
-            op = '/';
-            console.log(op);
-            state = "input2";
-            operating = true;
+            console.log(input);
+            if(num2 == null) {
+                console.log("num2 was null");
+                op = input;
+                state = "input2";
+                num2 = "";
+                
+            }
+            else if(num1 != '' && num2 != '') {
+                console.log("neither inputs were null")
+                let result = operate(op,num1,num2);
+                num1 = result;
+                num2 = '';
+                op = input;
+                state = "input2";
+                updateDisplay(num1);
+            }
+            else {
+                num2 = "";
+                state = "input2";
+                op = input;
+            }
+        
+        break;
         case "equalKey":
-            let result = operate(op,num1,num2);
-            updateDisplay(result);
-            console.log(result);
-            num1 = result;
-            state = "num1";
-            ans = true;
+        let result = operate(op,num1,num2)
+        updateDisplay(result);
+        num1 = result;
+        num2 = null;
+        state = 'input1';
+        break;
         default:
-            break;
-    }
-    if(!operating) {
-    switch(state) {
+        switch(state) {
         case "input1":
-            if(input == '.'){
+            if(num2 == null) {
+                num1 = input;
+                num2 = "";
+                updateDisplay(num1);
+            }
+            else {
+                if(input == '.'){
                 if(decimal) {
                     return;
                 }
@@ -65,6 +80,7 @@ function calculatorController(input) {
                 num1 += input;
                 updateDisplay(num1); 
             }
+        }
             break;
         case "input2":
             if(input == '.'){
@@ -82,13 +98,11 @@ function calculatorController(input) {
                 updateDisplay(num2); 
             }
             break;
-        
-            
+
+     }
     }
-    }
-    operating = false;
-    
 }
+
 // we use the .forEach method to iterate through each button
 buttons.forEach((button) => {
   // and for each one we add a 'click' listener
@@ -121,16 +135,16 @@ function multiply(num1,num2) {
 //operation function
 function operate(op, num1, num2) {
     switch(op) {
-        case '+':
+        case 'plusKey':
             return add(Number(num1),Number(num2));
             break;
-        case '-':
+        case 'minusKey':
             return subtract(Number(num1),Number(num2));
             break;
-        case '/':
+        case 'divideKey':
             return divide(Number(num1),Number(num2));
             break;
-        case '*':
+        case 'multiplyKey':
             return multiply(Number(num1),Number(num2));
             break;
     }
